@@ -12,6 +12,6 @@
       name: docker-compose
   - name: deploy Docker Compose stack
     community.docker.docker_compose:
-      project_src: /home/nicholas/github/homelab/homelab/dockercompose/portainer
+      project_src: /home/nicholas/github/homelab/dockercompose/portainer
       files:
       - compose.yaml
