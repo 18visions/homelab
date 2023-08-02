@@ -10,18 +10,18 @@
   - name: Install docker python package
     ansible.builtin.pip:
       name: docker-compose
-  - name: deploy Docker Compose stack
+  - name: deploy Docker Compose stack - portainer
     community.docker.docker_compose:
       project_src: /home/nicholas/github/homelab/dockercompose/portainer
       files:
-      - docker-compose.yaml
-  - name: deploy Docker Compose stack
+      - docker-compose.yml
+  - name: deploy Docker Compose stack - jenkins
     community.docker.docker_compose:
       project_src: /home/nicholas/github/homelab/dockercompose/jenkins
       files:
-      - docker-compose.yaml
-  - name: deploy Docker Compose stack
+      - docker-compose.yml
+  - name: deploy Docker Compose stack - prometheus-grafana
     community.docker.docker_compose:
       project_src: /home/nicholas/github/homelab/dockercompose/prometheus-grafana
       files:
-      - docker-compose.yaml
+      - docker-compose.yml
