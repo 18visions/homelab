@@ -14,4 +14,4 @@
     community.docker.docker_compose:
       project_src: /home/nicholas/github/homelab/dockercompose/portainer
       files:
-      - compose.yaml
+      - docker-compose.yaml
