@@ -25,3 +25,9 @@
       project_src: /home/nicholas/github/homelab/dockercompose/prometheus-grafana
       files:
       - docker-compose.yml
+  - name: deploy Docker Compose stack - pihole
+    community.docker.docker_compose:
+      project_src: /home/nicholas/github/homelab/dockercompose/pihole
+      files:
+      - docker-compose.yml
+
