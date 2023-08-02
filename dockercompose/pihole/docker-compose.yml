@@ -15,7 +15,7 @@ services:
       TZ: 'America/Los_Angeles'
       WEBPASSWORD: 'securepassword'
       IPv6: 'false'
-      WEB_PORT: '8080'
+      WEB_PORT: '80'
     dns:
       - 1.1.1.1
       - 1.0.0.1
