@@ -15,3 +15,13 @@
       project_src: /home/nicholas/github/homelab/dockercompose/portainer
       files:
       - docker-compose.yaml
+  - name: deploy Docker Compose stack
+    community.docker.docker_compose:
+      project_src: /home/nicholas/github/homelab/dockercompose/jenkins
+      files:
+      - docker-compose.yaml
+  - name: deploy Docker Compose stack
+    community.docker.docker_compose:
+      project_src: /home/nicholas/github/homelab/dockercompose/prometheus-grafana
+      files:
+      - docker-compose.yaml
