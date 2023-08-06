@@ -29,4 +29,9 @@ services:
       #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
     cap_add:
       - NET_ADMIN # Recommended but not required (DHCP needs NET_ADMIN)
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201" # Logstash UDP input port
+        tag: "pihole"
     restart: unless-stopped
