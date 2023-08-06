@@ -13,7 +13,7 @@ services:
       driver: gelf
       options:
         gelf-address: "udp://localhost:12201" # Logstash UDP input port
-        tag: "myapp"
+        tag: "portainer"
     restart: always
 
 volumes:
