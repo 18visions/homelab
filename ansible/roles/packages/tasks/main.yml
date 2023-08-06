@@ -1,0 +1,11 @@
+---
+- name: Install htop
+  ansible.builtin.package:
+    name: htop
+    state: present
+- name: Install docker python package
+  ansible.builtin.pip:
+    name: docker
+- name: Install docker python package
+  ansible.builtin.pip:
+    name: docker-compose

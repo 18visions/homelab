@@ -1,0 +1,44 @@
+- hosts: all
+  tasks:
+  - name: Install htop
+    ansible.builtin.package:
+      name: htop
+      state: present
+  - name: Install docker python package
+    ansible.builtin.pip:
+      name: docker
+  - name: Install docker python package
+    ansible.builtin.pip:
+      name: docker-compose
+  - name: Copy dockercompose dir
+    ansible.builtin.copy:
+      src: /ansibleV2/homelab/dockercompose
+      dest: /home/nicholas/github/homelab/  # link to /path/to/file
+      follow: yes
+  - name: deploy Docker Compose stack - portainer
+    community.docker.docker_compose:
+      project_src: /home/nicholas/github/homelab/dockercompose/portainer
+      files:
+      - docker-compose.yml
+  - name: deploy Docker Compose stack - jenkins
+    community.docker.docker_compose:
+      project_src: /home/nicholas/github/homelab/dockercompose/jenkins
+      files:
+      - docker-compose.yml
+  - name: deploy Docker Compose stack - prometheus-grafana
+    community.docker.docker_compose:
+      project_src: /home/nicholas/github/homelab/dockercompose/prometheus-grafana
+      files:
+      - docker-compose.yml
+  - name: deploy Docker Compose stack - pihole
+    community.docker.docker_compose:
+      project_src: /home/nicholas/github/homelab/dockercompose/pihole
+      files:
+      - docker-compose.yml
+  - name: deploy Docker Compose stack - elk
+    community.docker.docker_compose:
+      project_src: /home/nicholas/github/homelab/dockercompose/elk
+      files:
+      - docker-compose.yml
+
+

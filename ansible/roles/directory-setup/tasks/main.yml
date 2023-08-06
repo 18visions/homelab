@@ -1,0 +1,10 @@
+---
+- name: Creates /home/nicholas/github/homelab/ directory
+  file:
+    path: /home/nicholas/github/homelab/
+    state: directory
+- name: Copy dockercompose dir
+  ansible.builtin.copy:
+      src: /ansibleV2/homelab/dockercompose
+      dest: /home/nicholas/github/homelab/
+      follow: yes

@@ -1,0 +1,26 @@
+---
+- name: deploy Docker Compose stack - portainer
+  community.docker.docker_compose:
+    project_src: /home/nicholas/github/homelab/dockercompose/portainer
+    files:
+    - docker-compose.yml
+- name: deploy Docker Compose stack - jenkins
+  community.docker.docker_compose:
+    project_src: /home/nicholas/github/homelab/dockercompose/jenkins
+    files:
+    - docker-compose.yml
+- name: deploy Docker Compose stack - prometheus-grafana
+  community.docker.docker_compose:
+    project_src: /home/nicholas/github/homelab/dockercompose/prometheus-grafana
+    files:
+    - docker-compose.yml
+- name: deploy Docker Compose stack - pihole
+  community.docker.docker_compose:
+    project_src: /home/nicholas/github/homelab/dockercompose/pihole
+    files:
+    - docker-compose.yml
+- name: deploy Docker Compose stack - elk
+  community.docker.docker_compose:
+    project_src: /home/nicholas/github/homelab/dockercompose/elk
+    files:
+    - docker-compose.yml
