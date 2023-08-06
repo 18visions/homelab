@@ -12,7 +12,7 @@
       name: docker-compose
   - name: Copy dockercompose dir
     ansible.builtin.copy:
-      src: ./dockercmompose
+      src: /ansibleV2/homelab/dockercompose
       dest: /home/nicholas/github/homelab/  # link to /path/to/file
       follow: yes
   - name: deploy Docker Compose stack - portainer
