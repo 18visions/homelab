@@ -31,7 +31,9 @@
       files:
       - docker-compose.yml
   - name: elk setup
-    ansible.builtin.command: cd /home/nicholas/github/homelab/dockercompose/elk && sudo docker-compose up setup
+    ansible.builtin.command: sudo docker-compose up setup
+    args:
+      chdir: /home/nicholas/github/homelab/dockercompose/elk
   - name: deploy Docker Compose stack - elk
     community.docker.docker_compose:
       project_src: /home/nicholas/github/homelab/dockercompose/elk
