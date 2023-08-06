@@ -30,4 +30,10 @@
       project_src: /home/nicholas/github/homelab/dockercompose/pihole
       files:
       - docker-compose.yml
+  - name: deploy Docker Compose stack - elk
+    community.docker.docker_compose:
+      project_src: /home/nicholas/github/homelab/dockercompose/elk
+      files:
+      - docker-compose.yml
+
 
