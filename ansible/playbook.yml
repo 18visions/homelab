@@ -10,6 +10,11 @@
   - name: Install docker python package
     ansible.builtin.pip:
       name: docker-compose
+  - name: Copy dockercompose dir
+    ansible.builtin.copy:
+      src: ./dockercmompose
+      dest: /home/nicholas/github/homelab/  # link to /path/to/file
+      follow: yes
   - name: deploy Docker Compose stack - portainer
     community.docker.docker_compose:
       project_src: /home/nicholas/github/homelab/dockercompose/portainer
