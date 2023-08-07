@@ -9,3 +9,4 @@
       src: /ansibleV2/homelab/dockercompose # this is where this repo lives on my jumpbox
       dest: /home/nicholas/github/homelab/
       follow: yes
+      become: true
