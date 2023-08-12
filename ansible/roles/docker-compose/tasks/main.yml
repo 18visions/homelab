@@ -24,3 +24,8 @@
     project_src: /home/nicholas/github/homelab/dockercompose/elk
     files:
     - docker-compose.yml
+- name: deploy Docker Compose stack - heimdall
+  community.docker.docker_compose:
+    project_src: /home/nicholas/github/homelab/dockercompose/heimdall
+    files:
+    - docker-compose.yml
