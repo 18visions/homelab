@@ -8,3 +8,4 @@
     - packages
     - directory-setup
     - docker-compose
+    - blackbox-exporter-setup
