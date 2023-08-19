@@ -22,11 +22,11 @@
     dest: /tmp/
 
 - name: stat node_exporter
-  stat: path=/tmp/node_exporter-1.6.1.linux-amd64/node_exporter/
+  stat: path=/tmp/node_exporter-1.6.1.linux-amd64/node_exporter
   register: node_exporter_stat
 
 - name: Move foo to bar
-  command: mv /tmp/node_exporter-1.6.1.linux-amd64/node_exporter/ /usr/local/bin/
+  command: mv /tmp/node_exporter-1.6.1.linux-amd64/node_exporter /usr/local/bin/
   when: node_exporter_stat.stat.exists
 
 #- name: Copy node exporter dir with owner and permissions
