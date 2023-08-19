@@ -17,12 +17,12 @@
 
 - name: Extract node_exporter-1.6.1.linux-amd64.tar.gz into /tmp
   ansible.builtin.unarchive:
-    src: node_exporter-1.6.1.linux-amd64.tar.gz
+    src: /tmp/node_exporter-1.6.1.linux-amd64.tar.gz
     dest: /tmp
 
 - name: Copy node exporter dir with owner and permissions
   ansible.builtin.copy:
-    src: node_exporter-1.6.1.linux-amd64/node_exporter
+    src: /tmp/node_exporter-1.6.1.linux-amd64/node_exporter
     dest: /usr/local/bin/
     owner: node_exporter
     group: node_exporter
