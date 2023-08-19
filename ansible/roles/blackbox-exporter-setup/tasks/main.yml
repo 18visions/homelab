@@ -19,7 +19,7 @@
   ansible.builtin.unarchive:
     remote_src: true
     src: /tmp/node_exporter-1.6.1.linux-amd64.tar.gz
-    dest: /tmp
+    dest: /tmp/
 
 - name: Copy node exporter dir with owner and permissions
   ansible.builtin.copy:
