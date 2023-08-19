@@ -17,6 +17,7 @@
 
 - name: Extract node_exporter-1.6.1.linux-amd64.tar.gz into /tmp
   ansible.builtin.unarchive:
+    remote_src: true
     src: /tmp/node_exporter-1.6.1.linux-amd64.tar.gz
     dest: /tmp
 
