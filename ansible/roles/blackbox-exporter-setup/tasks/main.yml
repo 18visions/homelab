@@ -1,0 +1,43 @@
+- name: Create node_exporter group
+  ansible.builtin.group:
+    name: node_exporter
+    state: present
+
+- name: Create node_exporter user
+  ansible.builtin.user:
+    name: node_exporter
+    group: node_exporter
+    system: true
+    create_home: false
+
+- name: Download node exporter package
+  ansible.builtin.get_url:
+    url: https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.linux-amd64.tar.gz
+    dest: /tmp
+
+- name: Extract node_exporter-1.6.1.linux-amd64.tar.gz into /tmp
+  ansible.builtin.unarchive:
+    src: node_exporter-1.6.1.linux-amd64.tar.gz
+    dest: /tmp
+
+- name: Copy node exporter dir with owner and permissions
+  ansible.builtin.copy:
+    src: node_exporter-1.6.1.linux-amd64/node_exporter
+    dest: /usr/local/bin/
+    owner: node_exporter
+    group: node_exporter
+    mode: '0644'
+
+- name: Copy file with owner and permissions
+  ansible.builtin.copy:
+    src: node_exporter.service
+    dest: /etc/systemd/system/
+    owner: node_exporter
+    group: node_exporter
+    mode: '0644'
+
+- name: Start service node, if not started and enable
+  ansible.builtin.service:
+    name: node_exporter
+    state: started
+    enabled: true
