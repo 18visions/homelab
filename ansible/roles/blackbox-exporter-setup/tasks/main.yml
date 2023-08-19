@@ -25,7 +25,7 @@
   stat: path=/tmp/node_exporter-1.6.1.linux-amd64/node_exporter
   register: node_exporter_stat
 
-- name: Move foo to bar
+- name: Move node_exporter to /usr/local/bin
   command: mv /tmp/node_exporter-1.6.1.linux-amd64/node_exporter /usr/local/bin/
   when: node_exporter_stat.stat.exists
 
