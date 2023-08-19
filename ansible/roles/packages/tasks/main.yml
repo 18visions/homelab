@@ -3,6 +3,10 @@
   ansible.builtin.package:
     name: htop
     state: present
+- name: Install curl
+  ansible.builtin.package:
+    name: curl
+    state: present
 - name: Install docker
   ansible.builtin.package:
     name: docker.io
