@@ -21,14 +21,22 @@
     src: /tmp/node_exporter-1.6.1.linux-amd64.tar.gz
     dest: /tmp/
 
-- name: Copy node exporter dir with owner and permissions
-  ansible.builtin.copy:
-    remote_src: true
-    src: /tmp/node_exporter-1.6.1.linux-amd64/node_exporter/
-    dest: /usr/local/bin/
-    owner: node_exporter
-    group: node_exporter
-    mode: '0644'
+- name: stat node_exporter
+  stat: path=/tmp/node_exporter-1.6.1.linux-amd64/node_exporter/
+  register: node_exporter_stat
+
+- name: Move foo to bar
+  command: mv /tmp/node_exporter-1.6.1.linux-amd64/node_exporter/ /usr/local/bin/
+  when: node_exporter_stat.stat.exists
+
+#- name: Copy node exporter dir with owner and permissions
+#  ansible.builtin.copy:
+#    remote_src: true
+#    src: /tmp/node_exporter-1.6.1.linux-amd64/node_exporter/
+#    dest: /usr/local/bin/
+#    owner: node_exporter
+#    group: node_exporter
+#    mode: '0644'
 
 - name: Copy file with owner and permissions
   ansible.builtin.copy:
