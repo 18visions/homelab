@@ -10,30 +10,27 @@
     system: true
     create_home: false
 
+- name: Check if node exporter already in /usr/local/bin
+  stat: path=/usr/local/bin/node_exporter
+  register: node_exporter_stat
+
 - name: Download node exporter package
   ansible.builtin.get_url:
     url: https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.linux-amd64.tar.gz
     dest: /tmp
     force: false
-
-- name: Check if node exporter has already been extracted
-  stat: path=/tmp/node_exporter-1.6.1.linux-amd64/node_exporter
-  register: node_exporter_extract_stat
+  when: not node_exporter_stat.stat.exists
 
 - name: Extract node_exporter-1.6.1.linux-amd64.tar.gz into /tmp
   ansible.builtin.unarchive:
     remote_src: true
     src: /tmp/node_exporter-1.6.1.linux-amd64.tar.gz
     dest: /tmp/
-  when: not node_exporter_extract_stat.stat.exists
-
-- name: Check if node_exporter is in /tmp before moving to /usr/loca/bin
-  stat: path=/tmp/node_exporter-1.6.1.linux-amd64/node_exporter
-  register: node_exporter_destination_stat
+  when: not node_exporter_stat.stat.exists
 
 - name: Move node_exporter to /usr/local/bin
   command: mv /tmp/node_exporter-1.6.1.linux-amd64/node_exporter /usr/local/bin/
-  when: not node_exporter_destination_stat.stat.exists
+  when: not node_exporter_stat.stat.exists
 
 #- name: Copy node exporter dir with owner and permissions
 #  ansible.builtin.copy:
