@@ -25,7 +25,7 @@
     remote_src: true
     src: /tmp/node_exporter-1.6.1.linux-amd64.tar.gz
     dest: /tmp/
-    when: not node_exporter_extract_stat.stat.exists
+  when: not node_exporter_extract_stat.stat.exists
 
 - name: Check if node_exporter is in /tmp before moving to /usr/loca/bin
   stat: path=/tmp/node_exporter-1.6.1.linux-amd64/node_exporter
@@ -55,7 +55,7 @@
     owner: node_exporter
     group: node_exporter
     mode: '0644'
-    when: not node_exporter_service_stat.stat.exists
+  when: not node_exporter_service_stat.stat.exists
 
 - name: Start service node, if not started and enable
   ansible.builtin.service:
