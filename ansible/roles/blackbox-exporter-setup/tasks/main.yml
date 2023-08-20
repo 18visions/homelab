@@ -10,15 +10,11 @@
     system: true
     create_home: false
 
-- name: Check if node exporter package exists
-  stat: path=/tmp/node_exporter-1.6.1.linux-amd64.tar.gz
-  register: node_exporter_package_stat
-
 - name: Download node exporter package
   ansible.builtin.get_url:
     url: https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.linux-amd64.tar.gz
     dest: /tmp
-    when: not node_exporter_package_stat.stat.exists
+    force: false
 
 - name: Check if node exporter has already been extracted
   stat: path=/tmp/node_exporter-1.6.1.linux-amd64/node_exporter
