@@ -34,3 +34,8 @@
     project_src: /home/nicholas/github/homelab/dockercompose/jupyter
     files:
     - docker-compose.yml
+- name: deploy Docker Compose stack - influxdb
+  community.docker.docker_compose:
+    project_src: /home/nicholas/github/homelab/dockercompose/influxdb
+    files:
+    - docker-compose.yml
